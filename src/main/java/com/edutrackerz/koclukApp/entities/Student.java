@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "Games")
+@Table(name = "Student")
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -23,4 +23,9 @@ public class Student {
     @Column(name = "student_name")
     @NotEmpty
     private String name;
+
+    @Column(name = "student_username")
+    @NotEmpty
+    private String username;
 }
+
