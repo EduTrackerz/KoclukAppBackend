@@ -30,10 +30,12 @@ public class StudentController {
     }
 
     @GetMapping("/getbyusername")
-    public ResponseEntity<Student> getByUsername(@RequestParam String username ) {
-        return studentRepository.findByUsername(username)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-
+    public ResponseEntity<StudentDTO> getByUsername(@RequestParam String username ) {
+        Optional<Student> student = studentRepository.findByUsername(username);
+        if (student.isPresent()) {
+            return ResponseEntity.ok(StudentDtoConverter.convertToDto(student.get()));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 }
