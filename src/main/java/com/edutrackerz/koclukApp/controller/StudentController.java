@@ -1,8 +1,13 @@
 package com.edutrackerz.koclukApp.controller;
 
+import com.edutrackerz.koclukApp.converters.StudentDtoConverter;
+import com.edutrackerz.koclukApp.dtos.StudentDTO;
 import com.edutrackerz.koclukApp.entities.Student;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/students")
@@ -15,9 +20,22 @@ public class StudentController {
     }
 
     @GetMapping("/getbyid")
-    public ResponseEntity<Student> getById(@RequestParam Long id) {
-        return studentRepository.findById(id)
-                .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
+    public ResponseEntity<StudentDTO> getById(@RequestParam Long id) {
+        Optional<Student> student = studentRepository.findById(id);
+        if (student.isPresent()) {
+            return ResponseEntity.ok(StudentDtoConverter.convertToDto(student.get()));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @GetMapping("/getbyusername")
+    public ResponseEntity<StudentDTO> getByUsername(@RequestParam String username ) {
+        Optional<Student> student = studentRepository.findByUsername(username);
+        if (student.isPresent()) {
+            return ResponseEntity.ok(StudentDtoConverter.convertToDto(student.get()));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
     }
 }
