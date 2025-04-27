@@ -1,6 +1,6 @@
 # Koçluk Merkezi Uygulaması - Backend Reposu
 
-Bu repo, öğrencilerin akademik süreçlerini yönetmek, öğretmenlerin ve koçların öğrenci performansını takip etmek için hazırlıyor olduğumuz Koçluk App projemizin backend kodlarını kapsamaktadır.
+Bu repo, öğrencilerin akademik süreçlerini yönetmek, öğretmenlerin ve koçların öğrenci performansını takip etmesini kolaylaştırmayı sağlamak için hazırlıyor olduğumuz Koçluk App projemizin backend kodlarını kapsamaktadır.
 
 ## Kullanılan Teknolojiler
 - **Backend Framework:** Spring Boot
@@ -10,7 +10,7 @@ Bu repo, öğrencilerin akademik süreçlerini yönetmek, öğretmenlerin ve ko�
 
 ## H2 Database Erişimi
 
-- Uygulama çalıştırıldığında, **H2 konsolu** otomatik olarak aktif olur.
+- Uygulama çalıştırıldığında, H2 konsolu otomatik olarak aktif olur. Erişmek için tarayıcınız üzerinden aşağıdaki adımları takip ediniz:
 - **Erişim URL'si:**  
   ```
   http://localhost:8080/h2-console
@@ -27,7 +27,7 @@ Bu repo, öğrencilerin akademik süreçlerini yönetmek, öğretmenlerin ve ko�
 
 - H2 konsolunda `JDBC URL` kısmını yukarıdaki gibi doldurarak bağlanabilirsiniz.
 
-- Eğer bağlantı başarısız olursa, `application.properties` dosyasındaki aşağıdaki ayarları kontrol edin:
+- Eğer bağlantı başarısız olursa, `application.properties` dosyanızın aşağıdaki gibi olduğundan emin olun:
 
   ```properties
   spring.application.name=koclukApp
