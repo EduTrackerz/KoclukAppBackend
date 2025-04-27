@@ -12,4 +12,12 @@ public class StudentDtoConverter {
                 student.getUsername()
         );
     }
+
+    public static Student convertToEntity(StudentDTO studentDTO) {
+        Student student = new Student();
+        student.setId(studentDTO.getId());
+        student.setName(studentDTO.getName());
+        student.setUsername(studentDTO.getUsername());
+        return student;
+    }
 }

@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5c6469a-0505-48ae-be5a-ae95d1f3c95a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/converters/StudentDtoConverter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/dtos/StudentDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="d5c6469a-0505-48ae-be5a-ae95d1f3c95a" name="Changes" comment="minor fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/entities/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/entities/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/controller/StudentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/controller/StudentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/controller/StudentRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/entities/Student.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/entities/Student.class" afterDir="false" />
     </list>
+    <list id="8afb6013-86f0-4035-ae24-55f2b2c5c792" name="added teacher and student registers and other profile necessities" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,12 +38,16 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="1-add-username-endpoint" />
-                    <option name="lastUsedInstant" value="1744700776" />
+                    <option name="branchName" value="2-added-registration-for-teacher-and-student" />
+                    <option name="lastUsedInstant" value="1745680015" />
                   </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1744700748" />
+                    <option name="lastUsedInstant" value="1745679789" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="1-add-username-endpoint" />
+                    <option name="lastUsedInstant" value="1745679756" />
                   </RecentBranch>
                 </list>
               </option>
@@ -83,26 +77,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "1-add-username-endpoint",
-    "last_opened_file_path": "C:/Users/sinem/Desktop/koclukApp",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;2-added-registration-for-teacher-and-student&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sinem/Desktop/koclukApp&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="KoclukAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
@@ -125,22 +119,58 @@
       <workItem from="1743018772042" duration="639000" />
       <workItem from="1743055704674" duration="356000" />
       <workItem from="1743152431987" duration="100000" />
-      <workItem from="1744698407873" duration="2494000" />
+      <workItem from="1744698407873" duration="3167000" />
+      <workItem from="1745562016658" duration="554000" />
+      <workItem from="1745563330163" duration="1082000" />
+      <workItem from="1745661799439" duration="1210000" />
+      <workItem from="1745678339528" duration="805000" />
+      <workItem from="1745750330704" duration="1785000" />
+      <workItem from="1745756176500" duration="409000" />
+      <workItem from="1745763165397" duration="842000" />
     </task>
+    <task id="LOCAL-00001" summary="getbyusername endpointi eklendi, endpointler nesne dönecek sekilde güncellendi">
+      <option name="closed" value="true" />
+      <created>1744701036137</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744701036137</updated>
+    </task>
+    <task id="LOCAL-00002" summary="minor fix">
+      <option name="closed" value="true" />
+      <created>1744701553468</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744701553468</updated>
+    </task>
+    <task id="LOCAL-00003" summary="teacher branches enum fixed">
+      <option name="closed" value="true" />
+      <created>1745750589426</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1745750589426</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fix: minor db adjustment for enum change">
+      <option name="closed" value="true" />
+      <created>1745755333741</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1745755333741</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentController.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="getbyusername endpointi eklendi, endpointler nesne dönecek sekilde güncellendi" />
+    <MESSAGE value="teacher branches enum fixed" />
+    <MESSAGE value="minor fix" />
+    <MESSAGE value="fix: minor db adjustment for enum change" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: minor db adjustment for enum change" />
   </component>
 </project>

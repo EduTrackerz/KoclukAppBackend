@@ -1,0 +1,79 @@
+package com.edutrackerz.koclukApp.controller;
+
+import com.edutrackerz.koclukApp.converters.TeacherDtoConverter;
+import com.edutrackerz.koclukApp.dtos.TeacherDTO;
+import com.edutrackerz.koclukApp.entities.Teacher;
+import com.edutrackerz.koclukApp.repository.TeacherRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+@RestController
+@RequestMapping("/teachers")
+public class TeacherController {
+
+    private final TeacherRepository teacherRepository;
+
+    public TeacherController(TeacherRepository teacherRepository) {
+        this.teacherRepository = teacherRepository;
+    }
+
+    @GetMapping("/getbyid")
+    public ResponseEntity<TeacherDTO> getById(@RequestParam Long id) {
+        Optional<Teacher> teacher = teacherRepository.findById(id);
+        if (teacher.isPresent()) {
+            return ResponseEntity.ok(TeacherDtoConverter.convertToDto(teacher.get()));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @GetMapping("/getbyusername")
+    public ResponseEntity<TeacherDTO> getByUsername(@RequestParam String username) {
+        Optional<Teacher> teacher = teacherRepository.findByUsername(username);
+        if (teacher.isPresent()) {
+            return ResponseEntity.ok(TeacherDtoConverter.convertToDto(teacher.get()));
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<TeacherDTO> register(@RequestBody TeacherDTO teacherDTO) {
+        Teacher teacher = TeacherDtoConverter.convertToEntity(teacherDTO);
+        Teacher saved = teacherRepository.save(teacher);
+        return ResponseEntity.status(HttpStatus.CREATED).body(TeacherDtoConverter.convertToDto(saved));
+    }
+
+    @GetMapping("/getall")
+    public ResponseEntity<List<TeacherDTO>> getAll() {
+        List<TeacherDTO> teachers = teacherRepository.findAll()
+                .stream()
+                .map(TeacherDtoConverter::convertToDto)
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(teachers);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<TeacherDTO> update(@RequestBody TeacherDTO teacherDTO) {
+        if (teacherDTO.getId() == null || !teacherRepository.existsById(teacherDTO.getId())) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        Teacher teacher = TeacherDtoConverter.convertToEntity(teacherDTO);
+        Teacher updated = teacherRepository.save(teacher);
+        return ResponseEntity.ok(TeacherDtoConverter.convertToDto(updated));
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Void> delete(@RequestParam Long id) {
+        if (!teacherRepository.existsById(id)) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        teacherRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+} 
