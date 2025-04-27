@@ -1,13 +1,11 @@
 package com.edutrackerz.koclukApp.enums;
 
 public enum Branch {
-    EDEBIYAT,
+    TURKCE,
     MATEMATIK,
-    COGRAFIYA,
-    TARIH,
+    INKILAP_TARIHI,
     DIN_KULTURU_VE_AHLAK_BILGISI,
-    FIZIK,
-    KIMYA,
-    BIYOLOJI,
-    FELSEFE
+    FEN_BILIMLERI,
+    INGILIZCE
+
 } 
