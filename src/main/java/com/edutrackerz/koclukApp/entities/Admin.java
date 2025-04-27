@@ -8,18 +8,18 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "Manager")
-public class Manager {
+@Table(name = "Admin")
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "manager_id")
+    @Column(name = "admin_id")
     private Long id;
 
-    @Column(name = "manager_name")
+    @Column(name = "admin_name")
     @NotEmpty
     private String name;
 
-    @Column(name = "manager_username")
+    @Column(name = "admin_username")
     @NotEmpty
     private String username;
 }

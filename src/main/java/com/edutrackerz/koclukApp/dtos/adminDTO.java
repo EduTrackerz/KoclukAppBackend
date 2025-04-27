@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class managerDTO {
+public class adminDTO {
     private Long id;
     private String name;
     private String username;
