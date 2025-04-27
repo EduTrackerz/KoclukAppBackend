@@ -13,4 +13,12 @@ public class managerDTOConverter {
         );
     }
 
+    public static Manager convertToEntity(managerDTO managerDTO) {
+        Manager manager = new Manager();
+        manager.setId(managerDTO.getId());
+        manager.setName(managerDTO.getName());
+        manager.setUsername(managerDTO.getUsername());
+        return manager;
+    }
+
 }

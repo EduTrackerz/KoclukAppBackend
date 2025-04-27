@@ -32,6 +32,13 @@ public class ManagerController {
         }
     }
 
+     @PostMapping("/register")
+    public ResponseEntity<managerDTO> register(@RequestBody managerDTO ManagerDTO) {
+        Manager manager = managerDTOConverter.convertToEntity(ManagerDTO);
+        Manager saved = managerRepository.save(manager);
+        return ResponseEntity.status(HttpStatus.CREATED).body(managerDTOConverter.convertToDto(saved));
+    }
+
     @GetMapping("/getbyusername")
     public ResponseEntity<managerDTO> getByUsername(@RequestParam String username ) {
         Optional<Manager> manager = managerRepository.findByUsername(username);
