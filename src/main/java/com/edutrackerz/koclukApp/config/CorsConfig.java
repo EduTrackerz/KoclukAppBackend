@@ -13,10 +13,11 @@ public class CorsConfig {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**")  // tüm endpointler için
-                        .allowedOrigins("http://localhost:3000")  // sadece frontend'in çalıştığı port izinli
-                        .allowedMethods("GET", "POST", "PUT", "DELETE")  // izin verilen methodlar
-                        .allowedHeaders("*");  // tüm header'lara izin
+                registry.addMapping("/**")
+                        .allowedOrigins("http://localhost:3000") // Frontend portu
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // İzinli methodlar
+                        .allowedHeaders("*")
+                        .allowCredentials(true);
             }
         };
     }
