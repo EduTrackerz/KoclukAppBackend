@@ -42,4 +42,11 @@ public class ManagerController {
         }
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<managerDTO> register(@RequestBody managerDTO managerDTO) {
+        Manager manager = managerDTOConverter.convertToEntity(managerDTO);
+        Manager saved = managerRepository.save(manager);
+        return ResponseEntity.status(HttpStatus.CREATED).body(managerDTOConverter.convertToDto(saved));
+    }
+
 }
