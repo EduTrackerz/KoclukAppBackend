@@ -3,6 +3,8 @@ package com.edutrackerz.koclukApp.controller;
 import com.edutrackerz.koclukApp.converters.StudentDtoConverter;
 import com.edutrackerz.koclukApp.dtos.StudentDTO;
 import com.edutrackerz.koclukApp.entities.Student;
+import com.edutrackerz.koclukApp.repository.StudentRepository;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
