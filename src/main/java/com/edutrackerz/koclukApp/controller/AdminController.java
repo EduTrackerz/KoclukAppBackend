@@ -32,7 +32,7 @@ public class AdminController {
         }
     }
 
-     @PostMapping("/register")
+    @PostMapping("/register")
     public ResponseEntity<adminDTO> register(@RequestBody adminDTO AdminDTO) {
         Admin admin = adminDTOConverter.convertToEntity(AdminDTO);
         Admin saved = adminRepository.save(admin);
