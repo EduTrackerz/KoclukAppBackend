@@ -1,18 +1,25 @@
 package com.edutrackerz.koclukApp.service;
 
+import com.edutrackerz.koclukApp.converters.ExamResultConverter;
+import com.edutrackerz.koclukApp.dtos.ExamResultDto;
 import com.edutrackerz.koclukApp.entities.Exam;
 import com.edutrackerz.koclukApp.entities.ExamResult;
 import com.edutrackerz.koclukApp.repository.ExamRepository;
+import com.edutrackerz.koclukApp.repository.ExamResultRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ExamResultService {
     private final ExamRepository examRepository;
+    private final ExamResultRepository examResultRepository;
 
-    public ExamResultService(ExamRepository examRepository) {
+    public ExamResultService(ExamRepository examRepository, ExamResultRepository examResultRepository) {
         this.examRepository = examRepository;
+        this.examResultRepository = examResultRepository;
     }
 
     public void validateAnswerCounts(ExamResult examResult) {
@@ -74,5 +81,12 @@ public class ExamResultService {
         if (exam.getExamDate().isAfter(now)) {
             throw new IllegalArgumentException("Exam date has not arrived yet. You cannot submit results.");
         }
+    }
+
+    public List<ExamResultDto> getExamResultsByStudentId(Long studentId) {
+        List<ExamResult> examResults = examResultRepository.findByStudentId(studentId);
+        return examResults.stream()
+                .map(ExamResultConverter::toDto)
+                .collect(Collectors.toList());
     }
 }
