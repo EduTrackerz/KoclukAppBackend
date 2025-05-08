@@ -4,6 +4,7 @@ import com.edutrackerz.koclukApp.converters.ExamResultConverter;
 import com.edutrackerz.koclukApp.dtos.ExamResultDto;
 import com.edutrackerz.koclukApp.entities.Exam;
 import com.edutrackerz.koclukApp.entities.ExamResult;
+import com.edutrackerz.koclukApp.entities.ExamResultID;
 import com.edutrackerz.koclukApp.repository.ExamRepository;
 import com.edutrackerz.koclukApp.repository.ExamResultRepository;
 import org.springframework.stereotype.Service;
@@ -69,7 +70,7 @@ public class ExamResultService {
         int totalCorrect = examResult.getTurkceCorrect() + examResult.getMatematikCorrect() + examResult.getFenCorrect()
                 + examResult.getSosyalCorrect() + examResult.getDinCorrect() + examResult.getYabanciCorrect();
 
-        int totalWrong = examResult.getTurkceWrong() + examResult.getMatematikCorrect() + examResult.getFenWrong()
+        int totalWrong = examResult.getTurkceWrong() + examResult.getMatematikWrong() + examResult.getFenWrong()
                 + examResult.getSosyalWrong() + examResult.getDinWrong() + examResult.getYabanciWrong();
 
 
@@ -88,5 +89,11 @@ public class ExamResultService {
         return examResults.stream()
                 .map(ExamResultConverter::toDto)
                 .collect(Collectors.toList());
+    }
+    
+    // Yeni eklenen metot - öğrencinin belirli bir sınava girip girmediğini kontrol eder
+    public boolean hasStudentTakenExam(Long studentId, Long examId) {
+        ExamResultID id = new ExamResultID(studentId, examId);
+        return examResultRepository.existsById(id);
     }
 }
