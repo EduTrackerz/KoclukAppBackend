@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d5c6469a-0505-48ae-be5a-ae95d1f3c95a" name="Changes" comment="Added list exam results feature">
+    <list default="true" id="d5c6469a-0505-48ae-be5a-ae95d1f3c95a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamResultController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/repository/ExamResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/repository/ExamResultRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/ExamResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/ExamResultService.java" afterDir="false" />
     </list>
     <list id="8afb6013-86f0-4035-ae24-55f2b2c5c792" name="added teacher and student registers and other profile necessities" comment="added teacher and student registers and other profile necessities" />
@@ -29,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Exam-Result" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,6 +47,14 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="SCRUM-77-Filter-Enterable-Exams-From-Backend" />
+                    <option name="lastUsedInstant" value="1746722651" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1746722591" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="SCRUM-76-List-Exam-Results" />
                     <option name="lastUsedInstant" value="1746721145" />
                   </RecentBranch>
@@ -59,14 +65,6 @@
                   <RecentBranch>
                     <option name="branchName" value="2-added-registration-for-teacher-and-student" />
                     <option name="lastUsedInstant" value="1745680015" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1745679789" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="1-add-username-endpoint" />
-                    <option name="lastUsedInstant" value="1745679756" />
                   </RecentBranch>
                 </list>
               </option>
@@ -107,7 +105,7 @@
     "Spring Boot.KoclukAppApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "SCRUM-76-List-Exam-Results",
+    "git-widget-placeholder": "SCRUM-77-Filter-Enterable-Exams-From-Backend",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/bahadirakman/KoclukAppBackend",
     "node.js.detected.package.eslint": "true",
@@ -229,7 +227,23 @@
       <option name="project" value="LOCAL" />
       <updated>1745782839767</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added list exam results feature">
+      <option name="closed" value="true" />
+      <created>1746721594608</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1746721594608</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added list exam results feature">
+      <option name="closed" value="true" />
+      <created>1746721624774</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1746721624774</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,6 +269,7 @@
     <MESSAGE value="cors eklendi" />
     <MESSAGE value="added teacher and student registers and other profile necessities" />
     <MESSAGE value="changed Manager to Admin" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed Manager to Admin" />
+    <MESSAGE value="Added list exam results feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added list exam results feature" />
   </component>
 </project>
