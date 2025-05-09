@@ -26,7 +26,7 @@ public class ExamService {
         LocalDateTime now = LocalDateTime.now();
         
         return examRepository.findAll().stream()
-                .filter(exam -> exam.getExamDate().isAfter(now))
+                .filter(exam -> exam.getExamDate().isBefore(now))
                 .filter(exam -> !examResultService.hasStudentTakenExam(studentId, exam.getId())) 
                 .map(ExamDtoConverter::convertToDto)
                 .collect(Collectors.toList());
