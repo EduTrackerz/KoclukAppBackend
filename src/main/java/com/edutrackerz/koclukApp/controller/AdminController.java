@@ -5,6 +5,8 @@ import com.edutrackerz.koclukApp.converters.adminDTOConverter;
 import com.edutrackerz.koclukApp.dtos.adminDTO;
 import com.edutrackerz.koclukApp.entities.Admin;
 import com.edutrackerz.koclukApp.repository.AdminRepository;
+import com.edutrackerz.koclukApp.relations.TeacherStudentRelation;
+import com.edutrackerz.koclukApp.service.TeacherStudentRelationService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,14 +14,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@RestController@RequestMapping("/admins")
-
+@RestController
+@RequestMapping("/admins")
 public class AdminController {
 
     private final AdminRepository adminRepository;
+    private final TeacherStudentRelationService teacherStudentRelationService;
 
-    public AdminController(AdminRepository adminRepository) {
+    public AdminController(AdminRepository adminRepository, TeacherStudentRelationService teacherStudentRelationService) {
         this.adminRepository = adminRepository;
+        this.teacherStudentRelationService = teacherStudentRelationService;
     }
 
     @GetMapping("/getbyid")
@@ -49,5 +53,15 @@ public class AdminController {
         }
     }
 
-
+    @PostMapping("/assign-student-to-teacher")
+    public ResponseEntity<?> assignStudentToTeacher(@RequestParam Long teacherId, @RequestParam Long studentId) {
+        try {
+            TeacherStudentRelation relation = teacherStudentRelationService.createTeacherStudentRelation(teacherId, studentId);
+            return ResponseEntity.ok("Student with ID " + studentId + 
+                                    " successfully assigned to teacher with ID " + teacherId);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                                .body("Failed to assign student to teacher: " + e.getMessage());
+        }
+    }
 }

@@ -2,8 +2,10 @@ package com.edutrackerz.koclukApp.controller;
 
 import com.edutrackerz.koclukApp.converters.TeacherDtoConverter;
 import com.edutrackerz.koclukApp.dtos.TeacherDTO;
+import com.edutrackerz.koclukApp.entities.Student;
 import com.edutrackerz.koclukApp.entities.Teacher;
 import com.edutrackerz.koclukApp.repository.TeacherRepository;
+import com.edutrackerz.koclukApp.service.TeacherStudentRelationService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,9 +19,12 @@ import java.util.stream.Collectors;
 public class TeacherController {
 
     private final TeacherRepository teacherRepository;
+    private final TeacherStudentRelationService teacherStudentRelationService;
 
-    public TeacherController(TeacherRepository teacherRepository) {
+
+    public TeacherController(TeacherRepository teacherRepository, TeacherStudentRelationService teacherStudentRelationService) {
         this.teacherRepository = teacherRepository;
+        this.teacherStudentRelationService = teacherStudentRelationService;
     }
 
     @GetMapping("/getbyid")
@@ -75,5 +80,16 @@ public class TeacherController {
         }
         teacherRepository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{teacherId}/students")
+    public ResponseEntity<?> getStudentsOfTeacher(@PathVariable Long teacherId) {
+        try {
+            List<Student> students = teacherStudentRelationService.getStudentsOfTeacher(teacherId);
+            return ResponseEntity.ok(students);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Teacher not found with ID: " + teacherId);
+        }
     }
 } 
