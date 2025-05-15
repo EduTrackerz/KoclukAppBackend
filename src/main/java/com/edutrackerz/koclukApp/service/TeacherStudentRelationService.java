@@ -52,6 +52,23 @@ public class TeacherStudentRelationService {
                 .toList();
     }
 
+    public boolean isStudentBelongToTeacher(Long teacherId, Long studentId) {
+        try {
+            Teacher teacher = teacherRepository.findById(teacherId)
+                    .orElseThrow(() -> new EntityNotFoundException("Teacher not found"));
+                    
+            Student student = studentRepository.findById(studentId)
+                    .orElseThrow(() -> new EntityNotFoundException("Student not found"));
+                    
+            Optional<TeacherStudentRelation> relation = 
+                teacherStudentRelationRepository.findByTeacherAndStudent(teacher, student);
+                
+            return relation.isPresent();
+        } catch (EntityNotFoundException e) {
+            return false;
+        }
+    }
+
     public TeacherStudentRelation createTeacherStudentRelation(Long teacherId, Long studentId) {
         Teacher teacher = teacherRepository.findById(teacherId)
                 .orElseThrow(() -> new EntityNotFoundException("Teacher not found with ID: " + teacherId));
