@@ -41,10 +41,12 @@ public class ExamController {
 
     // Sınavları listelemek (ADMIN ve STUDENT görebilir)
     @GetMapping("/all")
-    public ResponseEntity<?> getAllExams(@RequestHeader("Role") String role) {
-        if (!(role.equalsIgnoreCase("ADMIN") || role.equalsIgnoreCase("STUDENT"))) {
-            return ResponseEntity.status(403).body("Access denied");
-        }
+    public ResponseEntity<?> getAllExams() {
+        /*public ResponseEntity<?> getAllExams(@RequestHeader("Role") String role) {
+            if (!(role.equalsIgnoreCase("ADMIN") || role.equalsIgnoreCase("STUDENT"))) {
+                return ResponseEntity.status(403).body("Access denied");
+            }*/
+         //Ogretmenin de sinav listesine erismesini saglamak icin burayi yoruma aldim
         List<Exam> exams = examRepository.findAllByOrderByExamDateAsc();
         return ResponseEntity.ok(exams);
     }

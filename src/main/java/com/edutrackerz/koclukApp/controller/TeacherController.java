@@ -5,7 +5,9 @@ import com.edutrackerz.koclukApp.dtos.TeacherDTO;
 import com.edutrackerz.koclukApp.entities.Student;
 import com.edutrackerz.koclukApp.entities.Teacher;
 import com.edutrackerz.koclukApp.repository.TeacherRepository;
+import com.edutrackerz.koclukApp.service.ExamStudentRelationService;
 import com.edutrackerz.koclukApp.service.TeacherStudentRelationService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,15 +18,16 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/teachers")
-public class TeacherController {
-
-    private final TeacherRepository teacherRepository;
+public class TeacherController {    private final TeacherRepository teacherRepository;
     private final TeacherStudentRelationService teacherStudentRelationService;
+    private final ExamStudentRelationService examStudentRelationService;
 
-
-    public TeacherController(TeacherRepository teacherRepository, TeacherStudentRelationService teacherStudentRelationService) {
+    public TeacherController(TeacherRepository teacherRepository, 
+                           TeacherStudentRelationService teacherStudentRelationService,
+                           ExamStudentRelationService examStudentRelationService) {
         this.teacherRepository = teacherRepository;
         this.teacherStudentRelationService = teacherStudentRelationService;
+        this.examStudentRelationService = examStudentRelationService;
     }
 
     @GetMapping("/getbyid")
@@ -80,9 +83,7 @@ public class TeacherController {
         }
         teacherRepository.deleteById(id);
         return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping("/{teacherId}/students")
+    }    @GetMapping("/{teacherId}/students")
     public ResponseEntity<?> getStudentsOfTeacher(@PathVariable Long teacherId) {
         try {
             List<Student> students = teacherStudentRelationService.getStudentsOfTeacher(teacherId);
@@ -92,4 +93,23 @@ public class TeacherController {
                     .body("Teacher not found with ID: " + teacherId);
         }
     }
-} 
+      @PostMapping("/{teacherId}/assign-exam")
+    public ResponseEntity<?> assignExamToStudents(
+            @PathVariable Long teacherId,
+            @RequestParam List<Long> studentIdList,
+            @RequestParam Long examId) {
+        try {
+            examStudentRelationService.assignExamToStudents(studentIdList, examId, teacherId);
+            return ResponseEntity.ok().body("Sınav öğrencilere başarıyla atandı.");
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body("Hata: " + e.getMessage());
+        } catch (IllegalStateException e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Hata: " + e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Sınav atama işlemi sırasında bir hata oluştu: " + e.getMessage());
+        }
+    }
+}

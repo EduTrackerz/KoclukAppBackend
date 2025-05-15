@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d5c6469a-0505-48ae-be5a-ae95d1f3c95a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/StudentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/TeacherController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/TeacherController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/repository/ExamRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/repository/ExamRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/ExamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/ExamService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/StudentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/StudentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/TeacherStudentRelationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/TeacherStudentRelationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/controller/StudentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/edutrackerz/koclukApp/controller/StudentController.class" afterDir="false" />
     </list>
     <list id="8afb6013-86f0-4035-ae24-55f2b2c5c792" name="added teacher and student registers and other profile necessities" comment="added teacher and student registers and other profile necessities" />
@@ -22,6 +28,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -49,6 +56,10 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
+                    <option name="branchName" value="SCRUM-78-Assign-Exams-To-Students" />
+                    <option name="lastUsedInstant" value="1747333007" />
+                  </RecentBranch>
+                  <RecentBranch>
                     <option name="branchName" value="SCRUM-81-Assinging-teachers-and-students" />
                     <option name="lastUsedInstant" value="1747320577" />
                   </RecentBranch>
@@ -63,10 +74,6 @@
                   <RecentBranch>
                     <option name="branchName" value="SCRUM-76-List-Exam-Results" />
                     <option name="lastUsedInstant" value="1746721145" />
-                  </RecentBranch>
-                  <RecentBranch>
-                    <option name="branchName" value="Exam-Result" />
-                    <option name="lastUsedInstant" value="1746709765" />
                   </RecentBranch>
                 </list>
               </option>
@@ -107,7 +114,7 @@
     "Spring Boot.KoclukAppApplication.executor": "Run",
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "SCRUM-81-Assinging-teachers-and-students",
+    "git-widget-placeholder": "SCRUM-78-Assign-Exams-To-Students",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/bahadirakman/KoclukAppBackend",
     "node.js.detected.package.eslint": "true",
@@ -173,6 +180,7 @@
       <workItem from="1746168007639" duration="2252000" />
       <workItem from="1746625348736" duration="9075000" />
       <workItem from="1746776076243" duration="2092000" />
+      <workItem from="1747332895542" duration="3759000" />
     </task>
     <task id="LOCAL-00001" summary="getbyusername endpointi eklendi, endpointler nesne dönecek sekilde güncellendi">
       <option name="closed" value="true" />
