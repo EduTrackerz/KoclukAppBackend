@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ExamResultDto {
+public class ExamBriefResultDto {
 
     private int turkceCorrect;
     private int turkceWrong;

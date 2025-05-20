@@ -8,4 +8,5 @@ import java.util.List;
 public interface ExamResultRepository extends JpaRepository<ExamResult, ExamResultID> {
 
     List<ExamResult> findByStudentId(Long studentId);
+    List<ExamResult> findAllByExamId(Long examID);
 }
