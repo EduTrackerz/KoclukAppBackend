@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Getter
@@ -14,6 +15,9 @@ import java.util.Map;
 public class ExamDetailedResultDto {
     // This DTO will hold the topic-based distribution of exam results.
     private Map<String, Map<String, TopicStats>> detailedScores; // Subject -> Topic -> TopicStats
+
+    private String examName;
+    private LocalDateTime examDate;
 
     @Getter
     @Setter

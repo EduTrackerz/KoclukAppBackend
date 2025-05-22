@@ -19,12 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional; // Added
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -208,6 +203,18 @@ public class ExamResultService {
     public List<ExamBriefResultDto> getExamResultsBriefByStudentId(Long studentId) {
         List<ExamResult> examResults = examResultRepository.findByStudentId(studentId);
         return examResults.stream().map(ExamResultConverter::toBriefDto).collect(Collectors.toList());
+    }
+
+    // her sınavın yanında "Detayları Gör" butonu olacak, sadece bir sınavın detaylı sonucu yollanacak
+    public ExamDetailedResultDto getDetailedResultForStudent(Long studentId, Long examId) {
+        ExamResultID id = new ExamResultID(studentId, examId);
+
+        Optional<ExamResult> optionalResult = examResultRepository.findById(id);
+        if (optionalResult.isEmpty()) {
+            return null;
+        }
+        ExamResult result = optionalResult.get();
+        return ExamResultConverter.toDetailedDto(result);
     }
 
     public boolean hasStudentTakenExam(Long studentId, Long examId) {

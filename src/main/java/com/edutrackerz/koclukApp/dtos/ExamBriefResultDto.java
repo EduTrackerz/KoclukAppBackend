@@ -13,6 +13,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class ExamBriefResultDto {
 
+    private Long examId;
+
+
     private int turkceCorrect;
     private int turkceWrong;
     private int turkceEmpty;

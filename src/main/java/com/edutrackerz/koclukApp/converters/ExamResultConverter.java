@@ -58,6 +58,7 @@ public class ExamResultConverter {
         if (result.getExam() != null) {
             dto.setExamName(result.getExam().getName());
             dto.setExamDate(result.getExam().getExamDate());
+            dto.setExamId(result.getExam().getId());
         }        // Set subject-specific fields
         if (subjectStats.containsKey(turkce)) {
             int[] t = subjectStats.get(turkce);
@@ -102,6 +103,37 @@ public class ExamResultConverter {
         } else {
             dto.setTotalNet(0.0);
         }
+        return dto;
+    }
+
+    public static ExamDetailedResultDto toDetailedDto(ExamResult result) {
+        Map<String, Map<String, ExamDetailedResultDto.TopicStats>> detailedScores = new HashMap<>();
+        if (result.getTopicResults() != null) {
+            for (TopicResult tr : result.getTopicResults()) {
+                if (tr.getTopic() != null && tr.getTopic().getSubject() != null ) {
+                    String subjectName = tr.getTopic().getSubject().getName();
+                    String topicName = tr.getTopic().getName();
+
+                    // O ders için bir map yoksa oluştur
+                    if (!detailedScores.containsKey(subjectName)) {
+                        detailedScores.put(subjectName, new HashMap<>());
+                    }
+
+                    // Statları oluştur
+                    ExamDetailedResultDto.TopicStats stats = new ExamDetailedResultDto.TopicStats();
+                    stats.setCorrectAnswers(tr.getCorrectCount());
+                    stats.setIncorrectAnswers(tr.getWrongCount());
+                    stats.setBlankAnswers(tr.getEmptyCount());
+
+                    // map'e ekle
+                    detailedScores.get(subjectName).put(topicName, stats);
+                }
+            }
+        }
+        ExamDetailedResultDto dto = new ExamDetailedResultDto();
+        dto.setDetailedScores(detailedScores);
+        dto.setExamName(result.getExam().getName());
+        dto.setExamDate(result.getExam().getExamDate());
         return dto;
     }
 
