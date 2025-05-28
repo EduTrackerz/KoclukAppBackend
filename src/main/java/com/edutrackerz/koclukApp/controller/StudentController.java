@@ -101,11 +101,6 @@ public class StudentController {    private final StudentRepository studentRepos
     public ResponseEntity<?> getAssignedExams(@PathVariable Long studentId) {
         try {
             List<ExamDTO> assignedExams = studentService.getAssignedExams(studentId);
-              if (assignedExams.isEmpty()) {
-                return ResponseEntity.ok()
-                        .body(Collections.singletonMap("message", "Bu öğrenciye atanmış sınav bulunmamaktadır."));
-            }
-            
             return ResponseEntity.ok(assignedExams);
         } catch (jakarta.persistence.EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
