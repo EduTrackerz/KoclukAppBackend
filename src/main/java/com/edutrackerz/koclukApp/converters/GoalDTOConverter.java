@@ -17,7 +17,7 @@ public class GoalDTOConverter {
                 .subjectName(goal.getSubject().getName())
                 .questionCount(goal.getQuestionCount())
                 .deadline(goal.getDeadline())
-                .teacherName(goal.getTeacher().getName()) // ya da getFullName()
+                .teacherName(goal.getTeacher().getName())
                 .build();
     }
 
