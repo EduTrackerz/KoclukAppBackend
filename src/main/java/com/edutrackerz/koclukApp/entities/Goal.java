@@ -34,4 +34,8 @@ public class Goal {
 
     @Column(name = "deadline", nullable = false)
     private LocalDateTime deadline;
+
+
+    @Column(name = "completed", nullable = false)
+    private boolean completed = false;
 }

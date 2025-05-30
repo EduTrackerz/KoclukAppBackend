@@ -18,6 +18,7 @@ public class GoalDTOConverter {
                 .questionCount(goal.getQuestionCount())
                 .deadline(goal.getDeadline())
                 .teacherName(goal.getTeacher().getName())
+                .completed(goal.isCompleted())
                 .build();
     }
 
@@ -28,6 +29,7 @@ public class GoalDTOConverter {
                 .subject(subject)
                 .questionCount(dto.getQuestionCount())
                 .deadline(dto.getDeadline())
+                .completed(false)
                 .build();
     }
 }

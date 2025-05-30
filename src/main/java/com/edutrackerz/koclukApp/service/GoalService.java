@@ -12,6 +12,7 @@ import com.edutrackerz.koclukApp.repository.GoalRepository;
 import com.edutrackerz.koclukApp.repository.StudentRepository;
 import com.edutrackerz.koclukApp.repository.TeacherRepository;
 import com.edutrackerz.koclukApp.repository.SubjectRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -59,4 +60,13 @@ public class GoalService {
                 .map(goalConverter::toResponseDTO)
                 .toList();
     }
+
+    @Transactional
+    public void markGoalAsCompleted(Long goalId) {
+        Goal goal = goalRepository.findById(goalId)
+                .orElseThrow(() -> new EntityNotFoundException("Goal not found with id: " + goalId));
+        goal.setCompleted(true);
+        goalRepository.save(goal);
+    }
+
 }

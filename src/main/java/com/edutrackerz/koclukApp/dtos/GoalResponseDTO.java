@@ -17,4 +17,5 @@ public class GoalResponseDTO {
     private int questionCount;
     private LocalDateTime deadline;
     private String teacherName;
+    private boolean completed;
 }

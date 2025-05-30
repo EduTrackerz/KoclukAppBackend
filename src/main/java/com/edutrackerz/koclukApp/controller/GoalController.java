@@ -43,4 +43,10 @@ public class GoalController {
         List<GoalResponseDTO> response = goalService.getGoalsForStudent(studentId);
         return ResponseEntity.ok(response);
     }
+    @PutMapping("/{goalId}/complete")
+    public ResponseEntity<Map<String, String>> markGoalAsCompleted(@PathVariable Long goalId) {
+        goalService.markGoalAsCompleted(goalId);
+        return ResponseEntity.ok(Collections.singletonMap("message", "Goal marked as completed."));
+    }
+
 }
