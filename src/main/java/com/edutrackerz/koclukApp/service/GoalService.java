@@ -13,6 +13,7 @@ import com.edutrackerz.koclukApp.repository.StudentRepository;
 import com.edutrackerz.koclukApp.repository.TeacherRepository;
 import com.edutrackerz.koclukApp.repository.SubjectRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
