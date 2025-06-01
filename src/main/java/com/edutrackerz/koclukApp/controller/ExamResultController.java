@@ -3,9 +3,8 @@ package com.edutrackerz.koclukApp.controller;
 import com.edutrackerz.koclukApp.converters.ExamResultConverter;
 import com.edutrackerz.koclukApp.dtos.ExamBriefResultDto;
 import com.edutrackerz.koclukApp.dtos.ExamDetailedResultDto;
-import com.edutrackerz.koclukApp.dtos.ExamResultDto;
+import com.edutrackerz.koclukApp.dtos.ExamResultRequestDTO;
 import com.edutrackerz.koclukApp.entities.ExamResult;
-import com.edutrackerz.koclukApp.entities.TopicResult;
 import com.edutrackerz.koclukApp.repository.ExamResultRepository;
 import com.edutrackerz.koclukApp.service.ExamResultService;
 import com.edutrackerz.koclukApp.service.StudentService;
@@ -17,7 +16,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api/exam-results")
@@ -40,9 +38,12 @@ public class ExamResultController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<?> addExamResult(@RequestBody ExamDetailedResultDto examDetailedResult, @RequestParam Long studentId, @RequestParam Long examId) {
+    public ResponseEntity<?> addExamResult(
+            @RequestBody ExamResultRequestDTO examResultRequestDto,
+            @RequestParam Long studentId,
+            @RequestParam Long examId) {
         try {
-            ExamResult saved = examResultService.saveExamResult(examDetailedResult, studentId, examId);
+            ExamResult saved = examResultService.saveExamResult(examResultRequestDto, studentId, examId);
             return ResponseEntity.status(HttpStatus.CREATED).body(saved);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -74,28 +75,30 @@ public class ExamResultController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
         }
     }
-    // her sınavın yanında "Detayları Gör" butonu olacak, sadece bir sınavın detaylı sonucu yollanacak
+
     @GetMapping("/student/{studentId}/exam/{examId}/detailed")
     public ResponseEntity<?> getDetailedExamResult(
             @PathVariable Long studentId,
             @PathVariable Long examId) {
-        try{
+        try {
             boolean studentExists = studentService.existsById(studentId);
             if (!studentExists) {
                 Map<String, String> error = new HashMap<>();
                 error.put("message", "Öğrenci bulunamadı: " + studentId);
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
             }
+
             ExamDetailedResultDto detailedResult = examResultService.getDetailedResultForStudent(studentId, examId);
 
             if (detailedResult == null) {
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Collections.singletonMap("message", "Detaylı sınav sonucu bulunamadı!"));
+                return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                        .body(Collections.singletonMap("message", "Detaylı sınav sonucu bulunamadı!"));
             }
 
             return ResponseEntity.ok(detailedResult);
-
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Collections.singletonMap("message", "Sunucu Hatası: " + e.getMessage()));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Collections.singletonMap("message", "Sunucu Hatası: " + e.getMessage()));
         }
     }
 }

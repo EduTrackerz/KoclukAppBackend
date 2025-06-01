@@ -6,12 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="d5c6469a-0505-48ae-be5a-ae95d1f3c95a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" beforeDir="false" afterPath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/exception/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/exception/GlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/TeacherStudentRelationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/TeacherStudentRelationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.mv.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/memory_persist/koclukApp.trace.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamResultController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/controller/ExamResultController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/converters/ExamResultConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/converters/ExamResultConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/dtos/ExamDetailedResultDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/dtos/ExamDetailedResultDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/dtos/ExamResultDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/dtos/ExamResultDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/entities/ExamResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/entities/ExamResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/entities/TopicResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/entities/TopicResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/repository/ExamResultRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/repository/ExamResultRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/ExamResultService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/edutrackerz/koclukApp/service/ExamResultService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +185,7 @@
       <workItem from="1748525459945" duration="5030000" />
       <workItem from="1748544818080" duration="120000" />
       <workItem from="1748587332430" duration="2115000" />
-      <workItem from="1748754985519" duration="2836000" />
+      <workItem from="1748754985519" duration="13061000" />
     </task>
     <task id="LOCAL-00001" summary="getbyusername endpointi eklendi, endpointler nesne dönecek sekilde güncellendi">
       <option name="closed" value="true" />
