@@ -80,7 +80,7 @@ public class TeacherStudentRelationService {
             teacherStudentRelationRepository.findByTeacherAndStudent(teacher, student);
         
         if (existingRelation.isPresent()) {
-            throw new IllegalStateException("Teacher-Student relation already exists");
+            throw new IllegalStateException("Bu öğrenci zaten bu öğretmene atanmış.");
         }
         TeacherStudentRelation relation = new TeacherStudentRelation();
         relation.setTeacher(teacher);

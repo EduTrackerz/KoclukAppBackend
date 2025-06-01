@@ -31,12 +31,12 @@ public class ExamController {
 
     // Sınav eklemek (Sadece ADMIN rolü)
     @PostMapping("/add")
-    public ResponseEntity<String> addExam(@RequestBody @Valid Exam exam, @RequestHeader("Role") String role) {
+    public ResponseEntity<?> addExam(@RequestBody @Valid Exam exam, @RequestHeader("Role") String role) {
         if (!role.equalsIgnoreCase("ADMIN")) {
             return ResponseEntity.status(403).body("Access denied");
         }
         examRepository.save(exam);
-        return ResponseEntity.ok("Exam added successfully!");
+        return ResponseEntity.ok(exam);
     }
 
     // Sınavları listelemek (ADMIN ve STUDENT görebilir)

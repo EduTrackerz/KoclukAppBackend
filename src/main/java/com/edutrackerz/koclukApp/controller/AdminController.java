@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -57,11 +58,16 @@ public class AdminController {
     public ResponseEntity<?> assignStudentToTeacher(@RequestParam Long teacherId, @RequestParam Long studentId) {
         try {
             TeacherStudentRelation relation = teacherStudentRelationService.createTeacherStudentRelation(teacherId, studentId);
-            return ResponseEntity.ok("Student with ID " + studentId + 
-                                    " successfully assigned to teacher with ID " + teacherId);
+            return ResponseEntity.ok("Student with ID " + studentId +
+                    " successfully assigned to teacher with ID " + teacherId);
+        } catch (IllegalStateException e) {
+            // Özel hata: Öğrenci zaten atanmışsa
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body(Map.of("message", e.getMessage())); // frontend beklediği gibi JSON formatı
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                                .body("Failed to assign student to teacher: " + e.getMessage());
+                    .body(Map.of("message", "Öğrenci atanamadı: " + e.getMessage()));
         }
     }
+
 }
